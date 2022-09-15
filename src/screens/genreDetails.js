@@ -1,18 +1,20 @@
 import { View, FlatList, StyleSheet } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import MusicItem from "../components/MusicItem";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setTracks } from "../store";
 
 const GenreDetails = () => {
   const {
     params: { genreDetails, playlistDetails },
   } = useRoute();
   const theme = useSelector((state) => state.theme.activeTheme);
+  const tracks = useSelector((state) => state.tracks.trackItems);
 
   const navigation = useNavigation();
-  const [tracks, setTracks] = useState([]);
+  const dispatch = useDispatch();
 
   // Getting tracks of selected playlist
   const handleGetPlaylistMusic = () => {
@@ -21,7 +23,7 @@ const GenreDetails = () => {
         `http://api.napster.com/v2.2/playlists/${playlistDetails.id}/tracks?apikey=YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4&limit=15`
       )
       .then((response) => {
-        setTracks(response.data.tracks);
+        dispatch(setTracks({ tracks: response.data.tracks }));
       });
   };
 
@@ -32,7 +34,7 @@ const GenreDetails = () => {
         `http://api.napster.com/v2.2/genres/${genreDetails.id}/tracks/top?apikey=YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4&limit=15`
       )
       .then((response) => {
-        setTracks(response.data.tracks);
+        dispatch(setTracks({ tracks: response.data.tracks }));
       });
   };
 

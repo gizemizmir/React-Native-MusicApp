@@ -105,12 +105,44 @@ const authSlice = createSlice({
   },
 });
 
+const genreSlice = createSlice({
+  name: "genres",
+  initialState: {
+    genreItems: [],
+  },
+  reducers: {
+    setGenres: (state, action) => {
+      const { genres } = action.payload;
+      return {
+        genreItems: genres,
+      };
+    },
+  },
+});
+
+const trackSlice = createSlice({
+  name: "tracks",
+  initialState: {
+    trackItems: [],
+  },
+  reducers: {
+    setTracks: (state, action) => {
+      const { tracks } = action.payload;
+      return {
+        trackItems: tracks,
+      };
+    },
+  },
+});
+
 export const { toggleTheme } = themeSlice.actions;
 export const { setPlaylists } = playlistSlice.actions;
 export const { setTrendingPlaylist } = trendingPlaylistSlice.actions;
 export const { setSearchTracks } = searchSlice.actions;
 export const { deleteLike, addLike } = likeSlice.actions;
 export const { signIn, logOut } = authSlice.actions;
+export const { setGenres } = genreSlice.actions;
+export const { setTracks } = trackSlice.actions;
 
 export const store = configureStore({
   reducer: combineReducers({
@@ -120,5 +152,7 @@ export const store = configureStore({
     search: searchSlice.reducer,
     likes: likeSlice.reducer,
     auth: authSlice.reducer,
+    genres: genreSlice.reducer,
+    tracks: trackSlice.reducer,
   }),
 });

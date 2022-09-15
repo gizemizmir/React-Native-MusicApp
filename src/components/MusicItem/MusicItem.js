@@ -10,7 +10,6 @@ const MusicItem = ({ music }) => {
   const theme = useSelector((state) => state.theme.activeTheme);
   const likes = useSelector((state) => state.likes.likeItems);
   const isLiked = likes?.find((like) => like.id === music.id);
-  const index = likes.indexOf(isLiked);
 
   const deleteLikeFromState = (selectedMusic) => {
     const index = likes.indexOf(selectedMusic);

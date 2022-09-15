@@ -14,16 +14,16 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useDispatch, useSelector } from "react-redux";
 
 import MusicItem from "../components/MusicItem";
-import { setSearchTracks } from "../store";
+import { setSearchTracks, setGenres } from "../store";
 import { useIsFocused } from "@react-navigation/native";
 import PlaylistItem from "../components/PlaylistItem";
 
 const Search = () => {
   const [searchText, SetSearchText] = useState(null);
   const [isSearched, SetIsSearched] = useState(false);
-  const [genres, SetGenres] = useState([]);
   const theme = useSelector((state) => state.theme.activeTheme);
   const searchTracks = useSelector((state) => state.search.searchTracks);
+  const genres = useSelector((state) => state.genres.genreItems);
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
 
@@ -53,7 +53,7 @@ const Search = () => {
       )
       .then((response) => {
         // Setting searched Genres
-        SetGenres(response.data.genres);
+        dispatch(setGenres({ genres: response.data.genres }));
       });
   };
 
