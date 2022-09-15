@@ -4,15 +4,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import { View, Text } from 'react-native';
 import SettingsScreen from '../screens/settings';
+import ProfileSettingsScreen from '../screens/profileSettings';
+import ThemeSettingsScreen from '../screens/themeSettings';
 import { useSelector } from 'react-redux';
-
-const EmptyScreen = () => {
-    return (
-      <View>
-        <Text>Set Empty  Screen</Text>
-      </View>
-    );
-  };
 
 const SettingsStackNav = createStackNavigator();
 const SettingsStackNavigation = () => {
@@ -39,7 +33,7 @@ const SettingsStackNavigation = () => {
       />
       <SettingsStackNav.Screen
         name="ThemeSettingsScreen"
-        component={EmptyScreen}
+        component={ThemeSettingsScreen}
         options={{
           headerTitle: 'Theme Setting',
           headerStyle: {
@@ -52,7 +46,7 @@ const SettingsStackNavigation = () => {
       />
       <SettingsStackNav.Screen
         name="ProfileSettingsScreen"
-        component={EmptyScreen}
+        component={ProfileSettingsScreen}
         options={{
           headerTitle: 'Profile Setting',
           headerStyle: {
