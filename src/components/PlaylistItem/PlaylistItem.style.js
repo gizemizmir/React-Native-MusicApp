@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   playlistContainer: {
-    width: '50%',
+    width: "50%",
   },
   playlistButton: {
     backgroundColor: "#ececec",
@@ -12,14 +12,26 @@ export default StyleSheet.create({
   },
   playlistText: {
     paddingHorizontal: 10,
+    paddingVertical: 10,
     lineHeight: 35,
     flex: 1,
-    alignSelf: 'center'
+    alignSelf: "center",
+    fontWeight: "bold",
+    color: "#000",
   },
   genreButton: {
     backgroundColor: "#ececec",
-    marginRight: 10,
+    marginHorizontal: 10,
     marginBottom: 10,
     borderRadius: 5,
-  }
+  },
+  genreText: {
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+    lineHeight: 35,
+    flex: 1,
+    alignSelf: "center",
+    fontWeight: "bold",
+    color: "#000",
+  },
 });

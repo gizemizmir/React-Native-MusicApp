@@ -10,7 +10,7 @@ const PlaylistItem = ({ playlist, genre }) => {
       {playlist ? (
         <Pressable
           style={styles.playlistButton}
-          onPress={() => navigate("GenreDetails", { genreDetails: playlist })}
+          onPress={() => navigate("GenreDetails", { playlistDetails: playlist })}
         >
           <Text style={styles.playlistText}>{playlist.name}</Text>
         </Pressable>
@@ -19,7 +19,7 @@ const PlaylistItem = ({ playlist, genre }) => {
           style={styles.genreButton}
           onPress={() => navigate("GenreDetails", { genreDetails: genre })}
         >
-          <Text style={styles.playlistText}>asdasdasd {genre.name}</Text>
+          <Text style={styles.genreText}> {genre.name}</Text>
         </Pressable>
       ) : (
         ""
