@@ -11,7 +11,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
       },
       musicImage: {
-        width: '30%',
+        width: '25%',
         height: 90,
         border:1,
         borderColor: '#000',
@@ -19,7 +19,7 @@ export default StyleSheet.create({
         borderRadius: 5,
       },
       musicDetails: {
-        width: '65%',
+        width: '60%',
         height: 90,
         display: 'flex',
         flexDirection: 'column',
@@ -28,5 +28,6 @@ export default StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 20,
+        flex:1
       }
 });
