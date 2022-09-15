@@ -10,7 +10,9 @@ const PlaylistItem = ({ playlist, genre }) => {
       {playlist ? (
         <Pressable
           style={styles.playlistButton}
-          onPress={() => navigate("GenreDetails", { playlistDetails: playlist })}
+          onPress={() =>
+            navigate("GenreDetails", { playlistDetails: playlist })
+          }
         >
           <Text style={styles.playlistText}>{playlist.name}</Text>
         </Pressable>

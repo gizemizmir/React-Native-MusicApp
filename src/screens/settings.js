@@ -14,9 +14,9 @@ const Settings = () => {
 
   const handleLogout = async () => {
     // Remove user from AsyncStorage
-    await AsyncStorage.removeItem('user');
+    await AsyncStorage.removeItem("user");
     dispatch(logOut());
-    auth.signOut()
+    auth.signOut();
   };
 
   return (

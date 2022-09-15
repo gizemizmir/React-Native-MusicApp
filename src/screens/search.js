@@ -129,7 +129,7 @@ const Search = () => {
         </Text>
       ) : (
         <FlatList
-          data={genres.slice(0,8)}
+          data={genres.slice(0, 8)}
           numColumns={2}
           renderItem={renderGenreItem}
           keyExtractor={(item, index) => `genre-${item.id}`}

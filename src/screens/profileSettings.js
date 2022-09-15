@@ -9,7 +9,7 @@ import { signIn } from "../store";
 import { useNavigation } from "@react-navigation/native";
 
 const ProfileSettings = () => {
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector((state) => state.auth.user);
   const theme = useSelector((state) => state.theme.activeTheme);
   const dispatch = useDispatch();
   const { goBack } = useNavigation();
@@ -25,7 +25,7 @@ const ProfileSettings = () => {
     await updateEmail(auth.currentUser, email);
     await signInWithEmailAndPassword(auth, email, user?.password).then(
       (response) => {
-        console.log(response.user)
+        console.log(response.user);
         storeData({
           email: response.user.email,
           password: user?.password,
@@ -48,7 +48,7 @@ const ProfileSettings = () => {
       // Incoming data is saved to Global State
       dispatch(signIn(JSON.parse(jsonValue)));
     }
-  }
+  };
 
   return (
     <View

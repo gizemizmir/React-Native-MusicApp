@@ -37,7 +37,7 @@ const MainStackNavigation = () => {
   useEffect(() => {
     getData();
     if (user && user.email) {
-      handleSignIn(); 
+      handleSignIn();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -100,8 +100,8 @@ const authSlice = createSlice({
     },
     logOut: (state, action) => {
       //asyncstorage sil
-      state.user = null
-    }
+      state.user = null;
+    },
   },
 });
 

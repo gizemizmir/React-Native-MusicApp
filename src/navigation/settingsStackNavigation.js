@@ -1,41 +1,42 @@
-import React from 'react';
+import React from "react";
 
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from "@react-navigation/stack";
 
-import { View, Text } from 'react-native';
-import SettingsScreen from '../screens/settings';
-import ProfileSettingsScreen from '../screens/profileSettings';
-import ThemeSettingsScreen from '../screens/themeSettings';
-import { useSelector } from 'react-redux';
+import { View, Text } from "react-native";
+import SettingsScreen from "../screens/settings";
+import ProfileSettingsScreen from "../screens/profileSettings";
+import ThemeSettingsScreen from "../screens/themeSettings";
+import { useSelector } from "react-redux";
 
 const SettingsStackNav = createStackNavigator();
 const SettingsStackNavigation = () => {
-  const theme = useSelector(state => state.theme.activeTheme);
+  const theme = useSelector((state) => state.theme.activeTheme);
 
   return (
     <SettingsStackNav.Navigator
       screenOptions={{
         headerShown: true,
-      }}>
+      }}
+    >
       <SettingsStackNav.Screen
         name="SettingsScreen"
         component={SettingsScreen}
         options={{
-            headerBackTitle: 'Profile',
-            headerTitle: 'Settings',
-            headerStyle: {
-              backgroundColor: theme.backgroundColor,
-            },
-            headerTitleStyle: {
-              color: theme.color,
-            },
-          }}
+          headerBackTitle: "Profile",
+          headerTitle: "Settings",
+          headerStyle: {
+            backgroundColor: theme.backgroundColor,
+          },
+          headerTitleStyle: {
+            color: theme.color,
+          },
+        }}
       />
       <SettingsStackNav.Screen
         name="ThemeSettingsScreen"
         component={ThemeSettingsScreen}
         options={{
-          headerTitle: 'Theme Setting',
+          headerTitle: "Theme Setting",
           headerStyle: {
             backgroundColor: theme.backgroundColor,
           },
@@ -48,7 +49,7 @@ const SettingsStackNavigation = () => {
         name="ProfileSettingsScreen"
         component={ProfileSettingsScreen}
         options={{
-          headerTitle: 'Profile Setting',
+          headerTitle: "Profile Setting",
           headerStyle: {
             backgroundColor: theme.backgroundColor,
           },

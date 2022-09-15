@@ -17,10 +17,9 @@ const MusicItem = ({ music }) => {
     if (index > -1) {
       dispatch(deleteLike(index));
     }
-  }
+  };
 
-  useEffect(() => {
-  }, [likes, isLiked]);
+  useEffect(() => {}, [likes, isLiked]);
   return (
     <View style={styles.musicItem}>
       <Image
