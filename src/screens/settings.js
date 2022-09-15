@@ -3,9 +3,9 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-
 import { logOut } from "../store";
 import { auth } from "../utils/firebase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Settings = () => {
   const { navigate } = useNavigation();
@@ -14,6 +14,7 @@ const Settings = () => {
 
   const handleLogout = async () => {
     // Remove user from AsyncStorage
+    await AsyncStorage.removeItem('user');
     dispatch(logOut());
     auth.signOut()
   };
