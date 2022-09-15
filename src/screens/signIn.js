@@ -12,6 +12,7 @@ import { auth } from "../utils/firebase";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { signIn } from "../store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -20,13 +21,27 @@ const SignIn = () => {
   const dispatch = useDispatch();
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password).then(
-      (response) => {
-        dispatch(signIn({
-            email: response.user.email,
-        }))
-      }
-    );
+    signInWithEmailAndPassword(auth, email, password).then((response) => {
+      storeData({
+        email: response.user.email,
+        password: password,
+      });
+      // Get user AsyncStorage to save in Global State
+      getData();
+    });
+  };
+
+  const storeData = async (data) => {
+    // Save user AsyncStorage
+    await AsyncStorage.setItem("user", JSON.stringify(data));
+  };
+
+  const getData = async () => {
+    const jsonValue = await AsyncStorage.getItem("user");
+    if (jsonValue != null) {
+      // Incoming data is saved to Global State
+      dispatch(signIn(JSON.parse(jsonValue)));
+    }
   };
 
   return (
