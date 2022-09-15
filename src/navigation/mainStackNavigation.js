@@ -6,19 +6,13 @@ import SettingsStackNavigation from './settingsStackNavigation';
 import { View, Text } from 'react-native';
 import {useSelector} from 'react-redux';
 import GenreDetails from '../screens/genreDetails';
-
-const EmptyScreen = () => {
-    return (
-      <View>
-        <Text>Empty Screen</Text>
-      </View>
-    );
-  };
+import SignUpScreen from '../screens/signUp';
+import SignInScreen from '../screens/signIn';
 
 const MainStackNav = createStackNavigator();
 const MainStackNavigation = () => {
 const theme = useSelector(state => state.theme.activeTheme);
-const user = {};
+const user = useSelector(state => state.auth.user);
 
   return (
     <MainStackNav.Navigator
@@ -53,12 +47,12 @@ const user = {};
         <>
           <MainStackNav.Screen
             name="SignIn"
-            component={EmptyScreen}
+            component={SignInScreen}
             options={{headerShown: false}}
           />
           <MainStackNav.Screen
             name="SignUp"
-            component={EmptyScreen}
+            component={SignUpScreen}
             options={{
               headerShown: true,
               headerTitle: '',
