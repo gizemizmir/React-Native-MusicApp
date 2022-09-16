@@ -15,14 +15,31 @@ const ProfileSettings = () => {
   const { goBack } = useNavigation();
 
   const [email, setEmail] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setEmail(user?.email);
   }, []);
 
   const handleUpdate = async () => {
-    // update user from json server by ID
-    await updateEmail(auth.currentUser, email);
+    // update user
+    setIsError(false);
+    setErrorMessage("");
+    await updateEmail(auth.currentUser, email)
+      .then((response) => {})
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            setIsError(true);
+            setErrorMessage("Email already in use !");
+            break;
+          case "auth/invalid-email":
+            setIsError(true);
+            setErrorMessage("Invalid email");
+            break;
+        }
+      });
     await signInWithEmailAndPassword(auth, email, user?.password).then(
       (response) => {
         storeData({
@@ -69,6 +86,11 @@ const ProfileSettings = () => {
         <Pressable style={styles.button} onPress={() => handleUpdate()}>
           <Text style={styles.buttonText}>Update</Text>
         </Pressable>
+        {isError ? (
+          <Text style={styles.errorText}>{errorMessage}</Text>
+        ) : (
+          <Text style={styles.errorText}> </Text>
+        )}
       </View>
     </View>
   );
@@ -150,6 +172,11 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
+  },
+  errorText: {
+    color: "#ff3333",
+    marginTop: 20,
+    fontWeight: "bold",
   },
 });
 
