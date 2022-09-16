@@ -5,36 +5,6 @@ EN - This project is the fiveth assignment within the scope of "Akbank React Nat
 TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsamında yapılan beşinci ödevdir. Music App uygulamasında giriş ve kayıt ekranı, müzik ve playlistlerin listelendiği ana ekran, müzik arama ekranı ve ayarlar ekranı bulunmaktadır.
 <br/><br/>
 
-## Screens
-
-### Gif
-
-<img src="src/assets/appScreen.gif"/>
-
-### ScreenShot
-
-<table>
-    <tbody>
-        <tr>
-            <td><img src="src/assets/signin.png" width="300" style="margin-right:30px;"/></td>
-            <td><img src="src/assets/signup.png" width="300" style="margin-right:30px;"/></td>
-            <td><img src="src/assets/home.png" width="300" style="margin-right:30px;"/></td>
-        </tr>
-        <tr>
-            <td><img src="src/assets/playlist.png" width="300" style="margin-right:30px;"/></td>
-            <td><img src="src/assets/search.png" width="300" style="margin-right:30px;"/></td>
-            <td><img src="src/assets/genres.png" width="300" style="margin-right:30px;"/></td>
-        </tr>
-        <tr>
-            <td><img src="src/assets/profile.png" width="300" style="margin-right:30px;"/></td>
-            <td><img src="src/assets/settings.png" width="300" style="margin-right:30px;"/></td>
-            <td><img src="src/assets/theme.png" width="300" style="margin-right:30px;"/></td>
-        </tr>
-    </tbody>
-</table>
-<br/>
-<br/>
-
 ## Technologies
 
 <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
@@ -62,11 +32,15 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
 - Setting Screen
 - Supports dark/light mode 🌗
 
+<br/>
+
 ### Todo
 
 - Music details page
 - Music rates
 - New additional features to the settings page
+
+<br/>
 
 ## Installation
 
@@ -74,3 +48,33 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
 yarn install
 yarn start
 ```
+
+<br/>
+
+## Screens
+
+### Gif
+
+<img src="src/assets/appScreen.gif"/>
+
+### ScreenShot
+
+<table>
+    <tbody>
+        <tr>
+            <td><img src="src/assets/signin.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/signup.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/home.png" width="300" style="margin-right:30px;"/></td>
+        </tr>
+        <tr>
+            <td><img src="src/assets/playlist.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/search.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/genres.png" width="300" style="margin-right:30px;"/></td>
+        </tr>
+        <tr>
+            <td><img src="src/assets/profile.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/settings.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/theme.png" width="300" style="margin-right:30px;"/></td>
+        </tr>
+    </tbody>
+</table>
