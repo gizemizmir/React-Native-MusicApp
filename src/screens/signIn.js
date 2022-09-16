@@ -17,18 +17,39 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const { navigate } = useNavigation();
   const dispatch = useDispatch();
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password).then((response) => {
-      storeData({
-        email: response.user.email,
-        password: password,
+    setIsError(false);
+    setErrorMessage("");
+    signInWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        storeData({
+          email: response.user.email,
+          password: password,
+        });
+        // Get user AsyncStorage to save in Global State
+        getData();
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/user-not-found":
+            setIsError(true);
+            setErrorMessage("User not found!");
+            break;
+          case "auth/invalid-email":
+            setIsError(true);
+            setErrorMessage("Invalid email");
+            break;
+          case "auth/wrong-password":
+            setIsError(true);
+            setErrorMessage("Wrong Password");
+            break;
+        }
       });
-      // Get user AsyncStorage to save in Global State
-      getData();
-    });
   };
 
   const storeData = async (data) => {
@@ -69,6 +90,11 @@ const SignIn = () => {
         <Pressable style={styles.button} onPress={handleSignIn}>
           <Text style={styles.buttonText}>Sign In</Text>
         </Pressable>
+        {isError ? (
+          <Text style={styles.errorText}>{errorMessage}</Text>
+        ) : (
+          <Text style={styles.errorText}> </Text>
+        )}
         <Text style={styles.signupLabel}>Don't have an account?</Text>
         <Pressable
           style={styles.buttonSignUp}
@@ -128,7 +154,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation: 3,
     backgroundColor: "#2196F3",
-    marginBottom: 35,
   },
   buttonText: {
     color: "#FFF",
@@ -157,6 +182,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontSize: 15,
     fontWeight: "bold",
+  },
+  errorText: {
+    color: "#ff3333",
+    fontWeight: "bold",
+    marginTop:10,
+    marginBottom: 25,
   },
 });
 

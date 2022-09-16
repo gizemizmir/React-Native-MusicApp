@@ -20,16 +20,26 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSignUp = () => {
+    setIsError(false);
+    setErrorMessage("");
     createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
         navigate("SignIn");
       })
       .catch((error) => {
-        console.log("ERROR", error.message);
-        console.log("ERROR Code", error.code);
-        if (error.code) {
-          setIsError(true);
-          setErrorMessage(error.message);
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            setIsError(true);
+            setErrorMessage("Email already in use !");
+            break;
+          case "auth/invalid-email":
+            setIsError(true);
+            setErrorMessage("Invalid email");
+            break;
+          case "auth/weak-password":
+            setIsError(true);
+            setErrorMessage("Password should be at least 6 characters");
+            break;
         }
       });
   };
@@ -69,9 +79,9 @@ const SignUp = () => {
           <Text style={styles.buttonText}>Sign Up</Text>
         </Pressable>
         {isError ? (
-          <Text style={{ color: "red" }}>{errorMessage}</Text>
+          <Text style={styles.errorText}>{errorMessage}</Text>
         ) : (
-          <Text style={{ color: "red" }}> </Text>
+          <Text style={styles.errorText}> </Text>
         )}
       </View>
     </SafeAreaView>
@@ -129,6 +139,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginBottom: 45,
     fontSize: 30,
+    fontWeight: "bold",
+  },
+  errorText: {
+    color: "#ff3333",
+    marginTop: 20,
     fontWeight: "bold",
   },
 });
