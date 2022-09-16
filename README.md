@@ -22,7 +22,7 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
 
 <br/>
 
-### Features
+## Features
 
 - "Napster API Version 2.2 is used in this project. <a href="https://developer.prod.napster.com/developer">Napster API</a>
 - Sign in Screen
@@ -34,7 +34,7 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
 
 <br/>
 
-### Todo
+## Todo
 
 - Music details page
 - Music rates
