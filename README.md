@@ -9,7 +9,7 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
 
 ### Gif
 
-<img src="src/assets/appScreen.gif" width="300"/>
+<img src="src/assets/appScreen.gif"/>
 
 ### ScreenShot
 
@@ -18,6 +18,7 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
         <tr>
             <td><img src="src/assets/signin.png" width="300" style="margin-right:30px;"/></td>
             <td><img src="src/assets/signup.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/home.png" width="300" style="margin-right:30px;"/></td>
         </tr>
     </tbody>
 </table>
