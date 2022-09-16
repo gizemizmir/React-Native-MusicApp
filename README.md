@@ -20,6 +20,16 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
             <td><img src="src/assets/signup.png" width="300" style="margin-right:30px;"/></td>
             <td><img src="src/assets/home.png" width="300" style="margin-right:30px;"/></td>
         </tr>
+        <tr>
+            <td><img src="src/assets/playlist.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/search.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/genres.png" width="300" style="margin-right:30px;"/></td>
+        </tr>
+        <tr>
+            <td><img src="src/assets/profile.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/settings.png" width="300" style="margin-right:30px;"/></td>
+            <td><img src="src/assets/theme.png" width="300" style="margin-right:30px;"/></td>
+        </tr>
     </tbody>
 </table>
 <br/>
