@@ -29,7 +29,7 @@ const MainStackNavigation = () => {
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, user?.email, user?.password).then(
       (response) => {
-        // Get user AsyncStorage to save in Global State
+        // Sign in
       }
     );
   };

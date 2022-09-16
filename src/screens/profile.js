@@ -23,6 +23,7 @@ const Profile = () => {
       </Text>
       {Object.keys(likes).length > 0 ? (
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={likes}
           renderItem={renderMusicItem}
           keyExtractor={(item, index) => `music-${item.id}`}

@@ -25,7 +25,6 @@ const ProfileSettings = () => {
     await updateEmail(auth.currentUser, email);
     await signInWithEmailAndPassword(auth, email, user?.password).then(
       (response) => {
-        console.log(response.user);
         storeData({
           email: response.user.email,
           password: user?.password,

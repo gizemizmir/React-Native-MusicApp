@@ -112,6 +112,7 @@ const Search = () => {
       {searchTracks && Object.keys(searchTracks).length !== 0 ? (
         searchTracks?.meta?.totalCount > 0 ? (
           <FlatList
+            showsVerticalScrollIndicator={false}
             style={styles.searchFlatList}
             data={searchTracks?.search?.data?.tracks}
             renderItem={renderTrackItem}
