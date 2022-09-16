@@ -26,26 +26,33 @@ const Settings = () => {
         { backgroundColor: theme?.backgroundColor },
       ]}
     >
-      <Image
-        style={styles.profileImage}
-        source={{ uri: "https://i.pravatar.cc/100?img=2" }}
-      />
-      <Pressable
-        style={styles.settingButton}
-        onPress={() => {
-          navigate("ThemeSettingsScreen");
-        }}
+      <View
+        style={[
+          styles.profileContainer,
+          { backgroundColor: theme?.backgroundColor },
+        ]}
       >
-        <Text style={styles.buttonText}>Theme</Text>
-      </Pressable>
-      <Pressable
-        style={styles.settingButton}
-        onPress={() => {
-          navigate("ProfileSettingsScreen");
-        }}
-      >
-        <Text style={styles.buttonText}>Edit Profile</Text>
-      </Pressable>
+        <Image
+          style={styles.profileImage}
+          source={{ uri: "https://i.pravatar.cc/100?img=2" }}
+        />
+        <Pressable
+          style={styles.settingButton}
+          onPress={() => {
+            navigate("ThemeSettingsScreen");
+          }}
+        >
+          <Text style={styles.buttonText}>Theme</Text>
+        </Pressable>
+        <Pressable
+          style={styles.settingButton}
+          onPress={() => {
+            navigate("ProfileSettingsScreen");
+          }}
+        >
+          <Text style={styles.buttonText}>Edit Profile</Text>
+        </Pressable>
+      </View>
       <Pressable style={[styles.settingButton]} onPress={handleLogout}>
         <Text style={styles.buttonText}>Log out</Text>
       </Pressable>
@@ -57,6 +64,12 @@ const styles = StyleSheet.create({
   settingContainer: {
     width: "100%",
     height: "100%",
+    display: "flex",
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  profileContainer: {
     display: "flex",
     alignSelf: "center",
     alignItems: "center",
