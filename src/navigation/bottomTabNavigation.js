@@ -7,11 +7,12 @@ import ProfileScreen from "../screens/profile";
 import { useSelector } from "react-redux";
 import SearchScreen from "../screens/search";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image, View, Text } from "react-native";
 
 const BottomNav = createBottomTabNavigator();
 const BottomTabNavigation = () => {
   const theme = useSelector((state) => state.theme.activeTheme);
+  const user = useSelector((state) => state.auth.user);
   const { navigate } = useNavigation();
 
   const profileHeaderRight = () => {
@@ -23,6 +24,18 @@ const BottomTabNavigation = () => {
         color={theme.color}
         onPress={() => navigate("Settings")}
       />
+    );
+  };
+
+  const profileHeaderLeft = () => {
+    return (
+     <View style={styles.profileInfo}>
+       <Image
+          style={styles.profileImage}
+          source={{ uri: "https://i.pravatar.cc/100?img=2" }}
+        />
+        <Text  style={styles.profileEmail}>{user.email}</Text>
+     </View>
     );
   };
 
@@ -74,6 +87,8 @@ const BottomTabNavigation = () => {
           headerTitleStyle: {
             color: theme.color,
           },
+          headerTitle: "",
+          headerLeft: profileHeaderLeft,
           headerRight: profileHeaderRight,
           tabBarIcon: () => (
             <Ionicons name="person" size={25} color={theme.color} />
@@ -89,5 +104,21 @@ const styles = StyleSheet.create({
   settingIcon: {
     marginRight: 20,
   },
+  profileInfo: {
+    flex:1,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  profileImage: {
+    width:30,
+    height:30,
+    borderRadius:30,
+    marginLeft:20
+  },
+  profileEmail: {
+    fontSize:16,
+    fontWeight: "bold",
+    marginLeft:10,
+  }
 });
 export default BottomTabNavigation;
